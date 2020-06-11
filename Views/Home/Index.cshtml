@@ -10,11 +10,14 @@
     </div>
 </div>
 <div class="row m-5">
-    <div class="col-10">
-        <input class="form-control" type="text" value="@ViewBag.Password">
-        <span class="text-secondary">Password #@ViewBag.cnt</span>
+    <div class="col-8">
+        <input class="form-control" type="text" id="password" value="@ViewBag.Password">
+        <span class="text-secondary">Password #<span id="cnt">@ViewBag.cnt</span></span>
     </div>
     <div class="col-2">
         <a class="btn btn-block btn-outline-primary" href="/">Generate</a>
+    </div>
+    <div class="col-2">
+        <a class="btn btn-block btn-outline-primary" href="javascript:{}" id="btnAjaxGen">Ajax Gen</a>
     </div>
 </div>

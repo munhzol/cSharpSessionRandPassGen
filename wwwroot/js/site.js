@@ -2,3 +2,15 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+
+
+$(document).ready(function(){
+    
+    $(document).on('click','#btnAjaxGen',function(){
+        $.get( "/pass", function( data ) {
+            $('#password').val(data.password);
+            $('#cnt').html(data.cnt);
+          });
+    })
+});

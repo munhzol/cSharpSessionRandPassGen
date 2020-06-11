@@ -29,6 +29,24 @@ namespace RandomPass.Controllers
             return View();
         }
 
+        [HttpGet("pass")]
+        public JsonResult RandomPassword()
+        {
+            
+            string password = RandomString(14).ToLower();
+            int cnt = (int)((HttpContext.Session.GetInt32("cnt")!=null)?HttpContext.Session.GetInt32("cnt"):0)+1;
+            HttpContext.Session.SetInt32("cnt",(int)cnt);
+
+            var ret = new Dictionary<string, string>
+            {
+                { "password", password },
+                { "cnt", cnt.ToString() }
+            };
+
+            return Json(ret);
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
